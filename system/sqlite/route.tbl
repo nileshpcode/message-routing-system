@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS route;
+CREATE TABLE route
+(
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    prefix     TEXT    NOT NULL,
+    gateway_id INTEGER NOT NULL,
+    FOREIGN KEY (gateway_id) REFERENCES gateway (id)
+);

@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS gateway;
+CREATE TABLE gateway
+(
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    name         TEXT NOT NULL,
+    ip_addresses TEXT NOT NULL
+);

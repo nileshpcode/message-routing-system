@@ -1,0 +1,135 @@
+---
+
+test_name: gateway_operations
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_1
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      body:
+        name: gateway_1
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+      save:
+        body:
+          gateway_id: id
+  - name: get_gateway
+    request:
+      url: http://localhost:8000/gateway/{gateway_id}/
+      method: GET
+    response:
+      status_code: 200
+      body:
+        id: !int "{gateway_id}"
+        name: gateway_1
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+
+---
+
+test_name: create_gateway_empty_name
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: ""
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 400
+
+---
+
+test_name: create_gateway_no_ips
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: "gateway_2"
+        ip_addresses: []
+    response:
+      status_code: 400
+
+---
+
+test_name: create_gateway_same_name
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_3
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+  - name: create_gateway_again
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_3
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 400
+
+---
+
+test_name: create_gateway_bad_ips
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: "gateway_4"
+        ip_addresses:
+          - '500.500.500.500'
+    response:
+      status_code: 400
+
+---
+
+test_name: get_gateway_not_exists
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_16
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+  - name: get_gateway
+    request:
+      url: http://localhost:8000/gateway/1948102948/
+      method: GET
+    response:
+      status_code: 404

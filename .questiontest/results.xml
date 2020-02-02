@@ -1,0 +1,3637 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="8" name="pytest" skipped="0" tests="15" time="2.581"><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="gateway_operations" time="0.336"></testcase><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="create_gateway_empty_name" time="0.007"></testcase><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="create_gateway_no_ips" time="0.007"></testcase><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="create_gateway_same_name" time="0.071"></testcase><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="create_gateway_bad_ips" time="0.075"><failure message="tavern.util.exceptions.TestFailError: Test &apos;create_gateway&apos; failed:
+- Status code was 201, expected 400">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bced6ea0&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem create_gateway_bad_ips&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_bad_ips&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_gateway_bad_ips&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_bad_ips&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_gateway_bad_ips&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_bad_ips&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_gateway_bad_ips&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bd9bb550&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_bad_ips&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_gateway_bad_ips&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem create_gateway_bad_ips&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem create_gateway_bad_ips&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_gateway.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;create_gateway_bad_ips&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:800...thod&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;name&apos;: &apos;gateway_4&apos;, &apos;ip_addresses&apos;: [&apos;500.500.500.500&apos;]}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcf7ac88&gt;}
+stage = {&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/gateway/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;name&apos;: &apos;gateway_4&apos;, &apos;ip_addresses&apos;: [&apos;500.500.500.500&apos;]}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...&apos;name&apos;: &apos;gateway_4&apos;, &apos;ip_addresses&apos;: [&apos;500.500.500.500&apos;]}, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcf174a8&gt;, response = &lt;Response [201]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;create_gateway&apos; failed:
+E           - Status code was 201, expected 400
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_gateway.tavern.yaml" file="test_gateway.tavern.yaml" line="0" name="get_gateway_not_exists" time="0.077"><failure message="tavern.util.exceptions.TestFailError: Test &apos;get_gateway&apos; failed:
+- Status code was 400, expected 404:
+    {&quot;error&quot;: &quot;gateway id not found&quot;}">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bced6b70&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem get_gateway_not_exists&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem get_gateway_not_exists&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem get_gateway_not_exists&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem get_gateway_not_exists&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bd973a90&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem get_gateway_not_exists&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem get_gateway_not_exists&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem get_gateway_not_exists&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_gateway.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;get_gateway_not_exists&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:800..., &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/gateway/1948102948/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 404}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bd973438&gt;}
+stage = {&apos;name&apos;: &apos;get_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/gateway/1948102948/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 404}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...&apos;GET&apos;, &apos;url&apos;: &apos;http://localhost:8000/gateway/1948102948/&apos;, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcc5e240&gt;, response = &lt;Response [400]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;get_gateway&apos; failed:
+E           - Status code was 400, expected 404:
+E               {&quot;error&quot;: &quot;gateway id not found&quot;}
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="route_operations" time="0.162"><failure message="tavern.util.exceptions.TestFailError: Test &apos;get_route&apos; failed:
+- Value mismatch in body: Structure of returned data was different than expected  - Extra keys in response: {&apos;name&apos;, &apos;ip_addresses&apos;} - Keys missing from response: {&apos;gateway&apos;, &apos;prefix&apos;} (expected = &apos;{&apos;id&apos;: 1, &apos;prefix&apos;: &apos;9190&apos;, &apos;gateway&apos;: {&apos;name&apos;: &apos;gateway_5&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}}&apos; (type = &lt;class &apos;dict&apos;&gt;), actual = &apos;{&apos;id&apos;: 1, &apos;name&apos;: &apos;gateway_1&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}&apos; (type = &lt;class &apos;dict&apos;&gt;))">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bccb0378&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem route_operations&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...perations&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem route_operations&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...perations&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem route_operations&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...perations&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem route_operations&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bd90bc18&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...perations&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem route_operations&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem route_operations&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem route_operations&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_route.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;route_operations&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/gate...ect at 0x7f27bd913e48&gt;, &apos;prefix&apos;: &apos;9190&apos;, &apos;gateway&apos;: {&apos;name&apos;: &apos;gateway_5&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}}}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcb4a0b8&gt;}
+stage = {&apos;name&apos;: &apos;get_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/{route_id}/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;st...bject at 0x7f27bd913e48&gt;, &apos;prefix&apos;: &apos;9190&apos;, &apos;gateway&apos;: {&apos;name&apos;: &apos;gateway_5&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}}}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...{&apos;method&apos;: &apos;GET&apos;, &apos;url&apos;: &apos;http://localhost:8000/route/1/&apos;, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcb4a940&gt;, response = &lt;Response [200]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;get_route&apos; failed:
+E           - Value mismatch in body: Structure of returned data was different than expected  - Extra keys in response: {&apos;name&apos;, &apos;ip_addresses&apos;} - Keys missing from response: {&apos;gateway&apos;, &apos;prefix&apos;} (expected = &apos;{&apos;id&apos;: 1, &apos;prefix&apos;: &apos;9190&apos;, &apos;gateway&apos;: {&apos;name&apos;: &apos;gateway_5&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}}&apos; (type = &lt;class &apos;dict&apos;&gt;), actual = &apos;{&apos;id&apos;: 1, &apos;name&apos;: &apos;gateway_1&apos;, &apos;ip_addresses&apos;: [&apos;1.1.1.1&apos;, &apos;8.8.8.8&apos;]}&apos; (type = &lt;class &apos;dict&apos;&gt;))
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="create_route_empty_prefix" time="0.093"></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="create_route_bad_prefix" time="0.170"><failure message="tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+- Status code was 201, expected 400">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bcbac0d0&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem create_route_bad_prefix&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ad_prefix&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_bad_prefix&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ad_prefix&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_bad_prefix&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ad_prefix&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_bad_prefix&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bcbc9f28&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ad_prefix&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_bad_prefix&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem create_route_bad_prefix&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem create_route_bad_prefix&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_route.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;create_route_bad_prefix&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:80...ix&apos;: &apos;abc&apos;, &apos;gateway_id&apos;: &lt;tavern.util.loader.IntToken object at 0x7f27bd913160&gt;}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcbc9da0&gt;}
+stage = {&apos;name&apos;: &apos;create_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;abc&apos;, &apos;gateway_id&apos;: &lt;tavern.util.loader.IntToken object at 0x7f27bd913160&gt;}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...:8000/route/&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;abc&apos;, &apos;gateway_id&apos;: 7}, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcbc9198&gt;, response = &lt;Response [201]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+E           - Status code was 201, expected 400
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="create_route_same_prefix" time="0.150"></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="create_route_empty_gateway" time="0.137"><failure message="tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+- Status code was 500, expected 400">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bcbac598&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem create_route_empty_gateway&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_empty_gateway&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_empty_gateway&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_empty_gateway&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bdc05080&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...y_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_empty_gateway&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem create_route_empty_gateway&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem create_route_empty_gateway&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_route.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;create_route_empty_gateway&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost...rl&apos;: &apos;http://localhost:8000/route/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9192&apos;}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bd923e80&gt;}
+stage = {&apos;name&apos;: &apos;create_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9192&apos;}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...http://localhost:8000/route/&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9192&apos;}, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bd896da0&gt;, response = &lt;Response [500]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+E           - Status code was 500, expected 400
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="create_route_unknown_gateway" time="0.073"><failure message="tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+- Status code was 500, expected 400">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bcf001e0&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem create_route_unknown_gateway&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...n_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_unknown_gateway&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...n_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem create_route_unknown_gateway&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...n_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_unknown_gateway&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bcbf0ba8&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...n_gateway&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem create_route_unknown_gateway&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem create_route_unknown_gateway&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem create_route_unknown_gateway&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_route.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;create_route_unknown_gateway&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9193&apos;, &apos;gateway_id&apos;: 912348104}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcbf0240&gt;}
+stage = {&apos;name&apos;: &apos;create_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/&apos;, &apos;method&apos;: &apos;POST&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9193&apos;, &apos;gateway_id&apos;: 912348104}}, &apos;response&apos;: {&apos;status_code&apos;: 400}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...te/&apos;, &apos;json&apos;: {&apos;prefix&apos;: &apos;9193&apos;, &apos;gateway_id&apos;: 912348104}, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcac4940&gt;, response = &lt;Response [500]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;create_route&apos; failed:
+E           - Status code was 500, expected 400
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_route.tavern.yaml" file="test_route.tavern.yaml" line="0" name="get_route_not_exists" time="0.145"><failure message="tavern.util.exceptions.TestFailError: Test &apos;get_gateway&apos; failed:
+- Status code was 400, expected 404:
+    {&quot;error&quot;: &quot;gateway id not found&quot;}">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bcbaa400&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem get_route_not_exists&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem get_route_not_exists&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem get_route_not_exists&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem get_route_not_exists&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bcc30b38&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...ot_exists&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem get_route_not_exists&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem get_route_not_exists&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem get_route_not_exists&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_route.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;get_route_not_exists&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;create_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/...y&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/1948102948/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 404}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcc00128&gt;}
+stage = {&apos;name&apos;: &apos;get_gateway&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/route/1948102948/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 404}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...: &apos;GET&apos;, &apos;url&apos;: &apos;http://localhost:8000/route/1948102948/&apos;, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcc007f0&gt;, response = &lt;Response [400]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;get_gateway&apos; failed:
+E           - Status code was 400, expected 404:
+E               {&quot;error&quot;: &quot;gateway id not found&quot;}
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase><testcase classname="test_search.tavern.yaml" file="test_search.tavern.yaml" line="0" name="route_search" time="0.463"></testcase><testcase classname="test_search.tavern.yaml" file="test_search.tavern.yaml" line="0" name="route_search_invalid_number" time="0.006"><failure message="tavern.util.exceptions.TestFailError: Test &apos;search_route&apos; failed:
+- Status code was 200, expected 400">cls = &lt;class &apos;_pytest.runner.CallInfo&apos;&gt;, func = &lt;function call_runtest_hook.&lt;locals&gt;.&lt;lambda&gt; at 0x7f27bcba9378&gt;, when = &apos;call&apos;
+reraise = (&lt;class &apos;_pytest.outcomes.Exit&apos;&gt;, &lt;class &apos;KeyboardInterrupt&apos;&gt;)
+
+    @classmethod
+    def from_call(cls, func, when, reraise=None):
+        #: context of invocation: one of &quot;setup&quot;, &quot;call&quot;,
+        #: &quot;teardown&quot;, &quot;memocollect&quot;
+        start = time()
+        excinfo = None
+        try:
+&gt;           result = func()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:225: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+&gt;       lambda: ihook(item=item, **kwds), when=when, reraise=reraise
+    )
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:197: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;, args = (), kwargs = {&apos;item&apos;: &lt;YamlItem route_search_invalid_number&gt;}, notincall = set()
+
+    def __call__(self, *args, **kwargs):
+        if args:
+            raise TypeError(&quot;hook calling supports only keyword arguments&quot;)
+        assert not self.is_historic()
+        if self.spec and self.spec.argnames:
+            notincall = (
+                set(self.spec.argnames) - set([&quot;__multicall__&quot;]) - set(kwargs.keys())
+            )
+            if notincall:
+                warnings.warn(
+                    &quot;Argument(s) {} which are declared in the hookspec &quot;
+                    &quot;can not be found in this hook call&quot;.format(tuple(notincall)),
+                    stacklevel=2,
+                )
+&gt;       return self._hookexec(self, self.get_hookimpls(), kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/hooks.py:286: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;_pytest.config.PytestPluginManager object at 0x7f27c22fceb8&gt;, hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...id_number&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem route_search_invalid_number&gt;}
+
+    def _hookexec(self, hook, methods, kwargs):
+        # called from all hookcaller instances.
+        # enable_tracing will set its own wrapping function at self._inner_hookexec
+&gt;       return self._inner_hookexec(hook, methods, kwargs)
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:92: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook = &lt;_HookCaller &apos;pytest_runtest_call&apos;&gt;
+methods = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...id_number&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+kwargs = {&apos;item&apos;: &lt;YamlItem route_search_invalid_number&gt;}
+
+    self._inner_hookexec = lambda hook, methods, kwargs: hook.multicall(
+        methods,
+        kwargs,
+&gt;       firstresult=hook.spec.opts.get(&quot;firstresult&quot;) if hook.spec else False,
+    )
+
+venv/lib/python3.6/site-packages/pluggy/manager.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...id_number&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem route_search_invalid_number&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+                        res = hook_impl.function(*args)
+                        if res is not None:
+                            results.append(res)
+                            if firstresult:  # halt further impl calls
+                                break
+            except BaseException:
+                excinfo = sys.exc_info()
+        finally:
+            if firstresult:  # first result hooks return a single value
+                outcome = _Result(results[0] if results else None, excinfo)
+            else:
+                outcome = _Result(results, excinfo)
+    
+            # run all wrapper post-yield blocks
+            for gen in reversed(teardowns):
+                try:
+                    gen.send(outcome)
+                    _raise_wrapfail(gen, &quot;has second yield&quot;)
+                except StopIteration:
+                    pass
+    
+&gt;           return outcome.get_result()
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;pluggy.callers._Result object at 0x7f27bd917208&gt;
+
+    def get_result(self):
+        &quot;&quot;&quot;Get the result(s) for this hook call.
+    
+        If the hook was marked as a ``firstresult`` only a single value
+        will be returned otherwise a list of results.
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        if self._excinfo is None:
+            return self._result
+        else:
+            ex = self._excinfo
+            if _py3:
+&gt;               raise ex[1].with_traceback(ex[2])
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+hook_impls = [&lt;HookImpl plugin_name=&apos;runner&apos;, plugin=&lt;module &apos;_pytest.runner&apos; from &apos;/home/admin1/go-projects/src/github.com/Nieless...id_number&gt;&gt;&gt;, &lt;HookImpl plugin_name=&apos;logging-plugin&apos;, plugin=&lt;_pytest.logging.LoggingPlugin object at 0x7f27bd9a9fd0&gt;&gt;]
+caller_kwargs = {&apos;item&apos;: &lt;YamlItem route_search_invalid_number&gt;}, firstresult = False
+
+    def _multicall(hook_impls, caller_kwargs, firstresult=False):
+        &quot;&quot;&quot;Execute a call into multiple python functions/methods and return the
+        result(s).
+    
+        ``caller_kwargs`` comes from _HookCaller.__call__().
+        &quot;&quot;&quot;
+        __tracebackhide__ = True
+        results = []
+        excinfo = None
+        try:  # run impl and wrapper setup functions in a loop
+            teardowns = []
+            try:
+                for hook_impl in reversed(hook_impls):
+                    try:
+                        args = [caller_kwargs[argname] for argname in hook_impl.argnames]
+                    except KeyError:
+                        for argname in hook_impl.argnames:
+                            if argname not in caller_kwargs:
+                                raise HookCallError(
+                                    &quot;hook call must provide argument %r&quot; % (argname,)
+                                )
+    
+                    if hook_impl.hookwrapper:
+                        try:
+                            gen = hook_impl.function(*args)
+                            next(gen)  # first yield
+                            teardowns.append(gen)
+                        except StopIteration:
+                            _raise_wrapfail(gen, &quot;did not yield&quot;)
+                    else:
+&gt;                       res = hook_impl.function(*args)
+
+venv/lib/python3.6/site-packages/pluggy/callers.py:187: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+item = &lt;YamlItem route_search_invalid_number&gt;
+
+    def pytest_runtest_call(item):
+        _update_current_test_var(item, &quot;call&quot;)
+        sys.last_type, sys.last_value, sys.last_traceback = (None, None, None)
+        try:
+&gt;           item.runtest()
+
+venv/lib/python3.6/site-packages/_pytest/runner.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;YamlItem route_search_invalid_number&gt;
+
+    def runtest(self):
+        self.global_cfg = load_global_cfg(self.config)
+    
+        self.global_cfg.setdefault(&quot;variables&quot;, {})
+    
+        load_plugins(self.global_cfg)
+    
+        self.global_cfg[&quot;tavern_internal&quot;] = {&quot;pytest_hook_caller&quot;: self.config.hook}
+    
+        # INTERNAL
+        # NOTE - now that we can &apos;mark&apos; tests, we could use pytest.mark.xfail
+        # instead. This doesn&apos;t differentiate between an error in verification
+        # and an error when running the test though.
+        xfail = self.spec.get(&quot;_xfail&quot;, False)
+    
+        try:
+            fixture_values = self._load_fixture_values()
+            self.global_cfg[&quot;variables&quot;].update(fixture_values)
+    
+            call_hook(
+                self.global_cfg,
+                &quot;pytest_tavern_beta_before_every_test_run&quot;,
+                test_dict=self.spec,
+                variables=self.global_cfg[&quot;variables&quot;],
+            )
+    
+            verify_tests(self.spec)
+    
+&gt;           run_test(self.path, self.spec, self.global_cfg)
+
+venv/lib/python3.6/site-packages/tavern/testutils/pytesthook/item.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+in_file = local(&apos;/home/admin1/go-projects/src/github.com/Nieless/message-routing-system/.questiontest/test_search.tavern.yaml&apos;)
+test_spec = {&apos;test_name&apos;: &apos;route_search_invalid_number&apos;, &apos;stages&apos;: [{&apos;name&apos;: &apos;search_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/search/route/abcdef/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 400}}]}
+global_cfg = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_test(in_file, test_spec, global_cfg):
+        &quot;&quot;&quot;Run a single tavern test
+    
+        Note that each tavern test can consist of multiple requests (log in,
+        create, update, delete, etc).
+    
+        The global configuration is copied and used as an initial configuration for
+        this test. Any values which are saved from any tests are saved into this
+        test block and can be used for formatting in later stages in the test.
+    
+        Args:
+            in_file (str): filename containing this test
+            test_spec (dict): The specification for this test
+            global_cfg (dict): Any global configuration for this test
+    
+        No Longer Raises:
+            TavernException: If any of the tests failed
+        &quot;&quot;&quot;
+    
+        # pylint: disable=too-many-locals
+    
+        # Initialise test config for this test with the global configuration before
+        # starting
+        test_block_config = dict(global_cfg)
+    
+        if &quot;variables&quot; not in test_block_config:
+            test_block_config[&quot;variables&quot;] = {}
+    
+        tavern_box = Box({&quot;env_vars&quot;: dict(os.environ)})
+    
+        if not test_spec:
+            logger.warning(&quot;Empty test block in %s&quot;, in_file)
+            return
+    
+        # Get included stages and resolve any into the test spec dictionary
+        available_stages = test_block_config.get(&quot;stages&quot;, [])
+        included_stages = _get_included_stages(
+            tavern_box, test_block_config, test_spec, available_stages
+        )
+        all_stages = {s[&quot;id&quot;]: s for s in available_stages + included_stages}
+        test_spec[&quot;stages&quot;] = _resolve_test_stages(test_spec, all_stages)
+    
+        test_block_config[&quot;variables&quot;][&quot;tavern&quot;] = tavern_box
+    
+        test_block_name = test_spec[&quot;test_name&quot;]
+    
+        # Strict on body by default
+        default_strictness = test_block_config[&quot;strict&quot;]
+    
+        logger.info(&quot;Running test : %s&quot;, test_block_name)
+    
+        with ExitStack() as stack:
+            sessions = get_extra_sessions(test_spec, test_block_config)
+    
+            for name, session in sessions.items():
+                logger.debug(&quot;Entering context for %s&quot;, name)
+                stack.enter_context(session)
+    
+            def getonly(stage):
+                o = stage.get(&quot;only&quot;)
+                if o is None:
+                    return False
+                elif isinstance(o, bool):
+                    return o
+                else:
+                    return strtobool(o)
+    
+            has_only = any(getonly(stage) for stage in test_spec[&quot;stages&quot;])
+    
+            # Run tests in a path in order
+            for stage in test_spec[&quot;stages&quot;]:
+                if stage.get(&quot;skip&quot;):
+                    continue
+                elif has_only and not getonly(stage):
+                    continue
+    
+                test_block_config[&quot;strict&quot;] = default_strictness
+    
+                # Can be overridden per stage
+                # NOTE
+                # this is hardcoded to check for the &apos;response&apos; block. In the far
+                # future there might not be a response block, but at the moment it
+                # is the hardcoded value for any HTTP request.
+                if stage.get(&quot;response&quot;, {}):
+                    if stage.get(&quot;response&quot;).get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = stage.get(&quot;response&quot;).get(&quot;strict&quot;, None)
+                    elif test_spec.get(&quot;strict&quot;, None) is not None:
+                        stage_strictness = test_spec.get(&quot;strict&quot;, None)
+                    else:
+                        stage_strictness = default_strictness
+    
+                    logger.debug(
+                        &quot;Strict key checking for this stage is &apos;%s&apos;&quot;, stage_strictness
+                    )
+    
+                    test_block_config[&quot;strict&quot;] = stage_strictness
+                elif default_strictness:
+                    logger.debug(
+                        &quot;Default strictness &apos;%s&apos; ignored for this stage&quot;, default_strictness
+                    )
+    
+                # Wrap run_stage with retry helper
+                run_stage_with_retries = retry(stage, test_block_config)(run_stage)
+    
+                try:
+&gt;                   run_stage_with_retries(sessions, stage, tavern_box, test_block_config)
+
+venv/lib/python3.6/site-packages/tavern/core.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sessions = {&apos;requests&apos;: &lt;requests.sessions.Session object at 0x7f27bcf90fd0&gt;}
+stage = {&apos;name&apos;: &apos;search_route&apos;, &apos;request&apos;: {&apos;url&apos;: &apos;http://localhost:8000/search/route/abcdef/&apos;, &apos;method&apos;: &apos;GET&apos;}, &apos;response&apos;: {&apos;status_code&apos;: 400}}
+tavern_box = &lt;Box: {&apos;env_vars&apos;: {&apos;CLUTTER_IM_MODULE&apos;: &apos;xim&apos;, &apos;_INTELLIJ_FORCE_SET_GO111MODULE&apos;: &apos;on&apos;, &apos;NVM_DIR&apos;: &apos;/home/admin1/.nvm...GET&apos;, &apos;url&apos;: &apos;http://localhost:8000/search/route/abcdef/&apos;, &apos;verify&apos;: True, &apos;stream&apos;: False, &apos;allow_redirects&apos;: False}}&gt;
+test_block_config = {&apos;backends&apos;: {&apos;http&apos;: &apos;requests&apos;, &apos;mqtt&apos;: &apos;paho-mqtt&apos;}, &apos;follow_redirects&apos;: False, &apos;strict&apos;: [], &apos;tavern_internal&apos;: {&apos;pytest_hook_caller&apos;: &lt;pluggy.hooks._HookRelay object at 0x7f27c22eeda0&gt;}, ...}
+
+    def run_stage(sessions, stage, tavern_box, test_block_config):
+        &quot;&quot;&quot;Run one stage from the test
+    
+        Args:
+            sessions (dict): Dictionary of relevant &apos;session&apos; objects used for this test
+            stage (dict): specification of stage to be run
+            tavern_box (box.Box): Box object containing format variables to be used
+                in test
+            test_block_config (dict): available variables for test
+        &quot;&quot;&quot;
+        name = stage[&quot;name&quot;]
+    
+        r = get_request_type(stage, test_block_config, sessions)
+    
+        tavern_box.update(request_vars=r.request_vars)
+    
+        expected = get_expected(stage, test_block_config, sessions)
+    
+        delay(stage, &quot;before&quot;, test_block_config[&quot;variables&quot;])
+    
+        logger.info(&quot;Running stage : %s&quot;, name)
+        response = r.run()
+    
+        verifiers = get_verifiers(stage, test_block_config, sessions, expected)
+        for v in verifiers:
+&gt;           saved = v.verify(response)
+
+venv/lib/python3.6/site-packages/tavern/core.py:241: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;tavern._plugins.rest.response.RestResponse object at 0x7f27bcbf3278&gt;, response = &lt;Response [200]&gt;
+
+    def verify(self, response):
+        &quot;&quot;&quot;Verify response against expected values and returns any values that
+        we wanted to save for use in future requests
+    
+        There are various ways to &apos;validate&apos; a block - a specific function, just
+        matching values, validating a schema, etc...
+    
+        Args:
+            response (requests.Response): response object
+    
+        Returns:
+            dict: Any saved values
+    
+        Raises:
+            TestFailError: Something went wrong with validating the response
+        &quot;&quot;&quot;
+        self._verbose_log_response(response)
+    
+        call_hook(
+            self.test_block_config,
+            &quot;pytest_tavern_beta_after_every_response&quot;,
+            expected=self.expected,
+            response=response,
+        )
+    
+        self.response = response
+        self.status_code = response.status_code
+    
+        # Get things to use from the response
+        try:
+            body = response.json()
+        except ValueError:
+            body = None
+    
+        redirect_query_params = self._get_redirect_query_params(response)
+    
+        # Run validation on response
+        self._check_status_code(response.status_code, body)
+    
+        self._validate_block(&quot;body&quot;, body)
+        self._validate_block(&quot;headers&quot;, response.headers)
+        self._validate_block(&quot;redirect_query_params&quot;, redirect_query_params)
+    
+        self._maybe_run_validate_functions(response)
+    
+        # Get any keys to save
+        saved = {}
+    
+        saved.update(self.maybe_get_save_values_from_save_block(&quot;body&quot;, body))
+        saved.update(
+            self.maybe_get_save_values_from_save_block(&quot;headers&quot;, response.headers)
+        )
+        saved.update(
+            self.maybe_get_save_values_from_save_block(
+                &quot;redirect_query_params&quot;, redirect_query_params
+            )
+        )
+    
+        saved.update(self.maybe_get_save_values_from_ext(response, self.expected))
+    
+        # Check cookies
+        for cookie in self.expected.get(&quot;cookies&quot;, []):
+            if cookie not in response.cookies:
+                self._adderr(&quot;No cookie named &apos;%s&apos; in response&quot;, cookie)
+    
+        if self.errors:
+            raise TestFailError(
+                &quot;Test &apos;{:s}&apos; failed:\n{:s}&quot;.format(self.name, self._str_errors()),
+&gt;               failures=self.errors,
+            )
+E           tavern.util.exceptions.TestFailError: Test &apos;search_route&apos; failed:
+E           - Status code was 200, expected 400
+
+venv/lib/python3.6/site-packages/tavern/_plugins/rest/response.py:195: TestFailError</failure></testcase></testsuite>

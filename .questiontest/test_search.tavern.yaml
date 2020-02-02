@@ -1,0 +1,110 @@
+---
+
+test_name: route_search
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_10
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id_1: id
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_11
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id_2: id
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_12
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id_3: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '18019'
+        gateway_id: !int "{gateway_id_1}"
+    response:
+      status_code: 201
+      save:
+        body:
+          route_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '1801'
+        gateway_id: !int "{gateway_id_2}"
+    response:
+      status_code: 201
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '1802'
+        gateway_id: !int "{gateway_id_3}"
+    response:
+      status_code: 201
+  - name: search_route
+    request:
+      url: http://localhost:8000/search/route/18019112217/
+      method: GET
+    response:
+      status_code: 200
+      body:
+        id: !int "{route_id}"
+        prefix: '18019'
+        gateway:
+          id: !int "{gateway_id_1}"
+          name: gateway_10
+          ip_addresses:
+            - '1.1.1.1'
+            - '8.8.8.8'
+  - name: search_route
+    request:
+      url: http://localhost:8000/search/route/18039112217/
+      method: GET
+    response:
+      status_code: 404
+
+---
+
+test_name: route_search_invalid_number
+
+stages:
+  - name: search_route
+    request:
+      url: http://localhost:8000/search/route/abcdef/
+      method: GET
+    response:
+      status_code: 400

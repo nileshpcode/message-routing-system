@@ -1,0 +1,229 @@
+---
+
+test_name: route_operations
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_5
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9190'
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 201
+      body:
+        prefix: '9190'
+        gateway:
+          name: gateway_5
+          ip_addresses:
+            - '1.1.1.1'
+            - '8.8.8.8'
+      save:
+        body:
+          route_id: id
+  - name: get_route
+    request:
+      url: http://localhost:8000/route/{route_id}/
+      method: GET
+    response:
+      status_code: 200
+      body:
+        id: !int "{route_id}"
+        prefix: '9190'
+        gateway:
+          name: gateway_5
+          ip_addresses:
+            - '1.1.1.1'
+            - '8.8.8.8'
+
+---
+
+test_name: create_route_empty_prefix
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_6
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: ''
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 400
+
+---
+
+test_name: create_route_bad_prefix
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_7
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: 'abc'
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 400
+
+---
+
+test_name: create_route_same_prefix
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_8
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9191'
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 201
+      save:
+        body:
+          route_id: id
+  - name: create_route_again
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9191'
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 400
+
+---
+
+test_name: create_route_empty_gateway
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_9
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9192'
+    response:
+      status_code: 400
+
+---
+
+test_name: create_route_unknown_gateway
+
+stages:
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9193'
+        gateway_id: 912348104
+    response:
+      status_code: 400
+
+---
+
+test_name: get_route_not_exists
+
+stages:
+  - name: create_gateway
+    request:
+      url: http://localhost:8000/gateway/
+      method: POST
+      json:
+        name: gateway_15
+        ip_addresses:
+          - '1.1.1.1'
+          - '8.8.8.8'
+    response:
+      status_code: 201
+      save:
+        body:
+          gateway_id: id
+  - name: create_route
+    request:
+      url: http://localhost:8000/route/
+      method: POST
+      json:
+        prefix: '9194'
+        gateway_id: !int "{gateway_id}"
+    response:
+      status_code: 201
+  - name: get_gateway
+    request:
+      url: http://localhost:8000/route/1948102948/
+      method: GET
+    response:
+      status_code: 404
